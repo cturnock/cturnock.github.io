@@ -3,8 +3,8 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
       - prod
+      - staging
 
 permissions:
   contents: write
