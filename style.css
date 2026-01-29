@@ -76,3 +76,11 @@ a {
 }
 
 
+/*font*/
+@font-face {
+  font-family: "Inconsolata";
+  src: url("./fonts/inconsolata.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
