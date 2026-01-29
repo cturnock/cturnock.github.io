@@ -27,9 +27,35 @@ body {
 h1 {
     color:#ffffff;
     margin-bottom: 40px;
+    font-family: "Inconsolata", monospace;
+    font-weight: 300;
+    font-size: 40px;
 }
 h2 {
     color: #ffffff;
+    font-family: "Inconsolata", monospace;
+    font-weight: 300;
+    font-size: 24px;
+}
+.year {
+    color: #212121;
+}
+.main-content {
+    margin: auto 0;
+}
+.secondary-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 32px;
+}
+a:hover {
+    text-decoration: line-through;
+}
+a {
+    color:#ffffff;
+    text-underline-offset: 0.3em;
+
 }
 
 /*circle*/
@@ -48,3 +74,5 @@ h2 {
   /* Optional */
   background: transparent;
 }
+
+
