@@ -84,3 +84,12 @@ a {
   font-style: normal;
   font-display: swap;
 }
+
+@media (max-width:850px) {
+    .secondary-content {
+        flex-direction:column;
+    }
+    .secondary-content h2:nth-of-type(2) {
+        display: none;
+    }
+}
