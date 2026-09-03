@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+    </script>
+    <title>Cody Turnock | Product Designer</title>
+    <meta name="description" content="Product designer portfolio — case studies in complex B2B systems design for commercial fleet management at General Motors.">
+    <meta property="og:title" content="Cody Turnock | Product Designer">
+    <meta property="og:description" content="Product designer portfolio — case studies in complex B2B systems design for commercial fleet management at General Motors.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/cturnock-logo.svg" type="image/svg+xml">
+
+</head>
+<body>
+    <div class="gate-overlay">
+        <form id="gate-form" class="gate-form">
+            <img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo" class="gate-logo">
+            <label for="gate-password" class="gate-label">This site is password protected</label>
+            <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="off" autofocus>
+            <button type="submit" class="gate-submit">Enter</button>
+            <p id="gate-error" class="gate-error"></p>
+        </form>
+    </div>
+    <div id="site-content">
+    <section class="navigation">
+        <img src="assets/cturnock-logo-full.svg" alt="cody turnock logo">
+        <ul class="navi">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </section>
+    <section class="hero">
+        <h1>I design complex B2B systems that hold up in the real world.</h1>
+        <p>For over a decade, I've partnered with product, engineering, and leadership to turn ambiguous requirements into products that work for both the business and the people using them.</p>
+    </section>
+    <section class="work" id="work">
+        <span class="section-label">Selected Work</span>
+        <a class="projects" id="project1" href="custom-video-request.html">
+            <span class="project-number">01</span>
+            <div class="project-content">
+                <h2>Custom Video Request</h2>
+                <p>A video request spec fleet managers couldn't actually use, reworked into the most-requested feature among camera customers.</p>
+                <div class="tags">
+                    <span class="tag">Systems thinking</span>
+                    <span class="tag">Business impact</span>
+                </div>
+            </div>
+            <span class="arrow">&rarr;</span>
+        </a>
+        <a class="projects" id="project2" href="vehicle-onboarding.html">
+            <span class="project-number">02</span>
+            <div class="project-content">
+                <h2>Vehicle Onboarding</h2>
+                <p>Rebuilding how fleet managers onboard vehicles at scale — replacing a static holding page with real-time progress built into the flow.</p>
+                <div class="tags">
+                    <span class="tag">Systems thinking</span>
+                    <span class="tag">Platform pattern</span>
+                </div>
+            </div>
+            <span class="arrow">&rarr;</span>
+        </a>
+        <a class="projects" id="project3" href="fleet-director.html">
+            <span class="project-number">03</span>
+            <div class="project-content">
+                <h2>Fleet Director</h2>
+                <p>Designing a proactive intelligence layer for the people managing thousands of vehicles at once — concept, in progress.</p>
+                <div class="tags">
+                    <span class="tag">0&rarr;1</span>
+                    <span class="tag">Data storytelling</span>
+                </div>
+            </div>
+            <span class="arrow">&rarr;</span>
+        </a>
+    </section>
+    <section class="about" id="about">
+        <div class="img-cont">
+            <div class="img"><img src="assets/about-photo1.jpg" alt="Placeholder"></div>
+            <div class="about-text">
+                <span class="section-label">About</span>
+                <p>Hi I'm Cody! I'm a product designer who enjoys untangling messy problems.</p>
+                <p>Over the last decade I've worked across complex B2B products, most recently designing software for commercial fleet managers at General Motors. The problems I enjoy most rarely start with pixels – they start with unclear requirements, competing priorities, technical constraints, and getting cross-functional teams aligned around the right problem before designing the solution.</p>
+                <p>I'm at my best when a project feels ambiguous. I enjoy asking the questions that change the direction of a project, challenging assumptions that no longer hold up, and working with Product, Engineering, Legal, and leadership to find solutions that are practical, scalable, and grounded in how people actually work.</p>
+                <p>The work I'm most proud of isn't necessarily the flashiest. It's the work that still makes sense months after launch because it solved the right problem, not just the one that was originally written down.</p>
+                <p>Outside of work, I'm based in Grand Rapids, Michigan, where life is mostly centered around my two kids. When I'm not designing, you'll usually find me tinkering in my garage, playing games, rolling dice for a D&D campaign, or tackling another project around the house.</p>
+            </div>
+        </div>
+    </section>
+    <section class="footer" id="contact">
+        <div class="footer-main">
+            <h1>Let's talk about your next hard problem.</h1>
+            <a href="mailto:codyturnock@gmail.com" class="email-link">codyturnock@gmail.com &rarr;</a>
+        </div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/codyturnock/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="assets/cody-turnock-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+            <span class="copyright">&copy; Cody Turnock</span>
+        </div>
+    </section>
+    </div>
+    <script src="password-gate.js"></script>
+</body>
+</html>

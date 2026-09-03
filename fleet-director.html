@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+    </script>
+    <title>Fleet Director Concept | Cody Turnock</title>
+    <meta name="description" content="Concept case study: reimagining a fleet intelligence dashboard around the goals a director actually sets, not just more data.">
+    <meta property="og:title" content="Fleet Director Concept | Cody Turnock">
+    <meta property="og:description" content="Concept case study: reimagining a fleet intelligence dashboard around the goals a director actually sets, not just more data.">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/cturnock-logo.svg" type="image/svg+xml">
+
+</head>
+<body>
+    <div class="gate-overlay">
+        <form id="gate-form" class="gate-form">
+            <img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo" class="gate-logo">
+            <label for="gate-password" class="gate-label">This site is password protected</label>
+            <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="off" autofocus>
+            <button type="submit" class="gate-submit">Enter</button>
+            <p id="gate-error" class="gate-error"></p>
+        </form>
+    </div>
+    <div id="site-content">
+    <section class="navigation">
+        <a href="index.html"><img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo"></a>
+        <a href="index.html" class="nav-back">&larr; All Work</a>
+    </section>
+    <section class="hero">
+        <span class="case-badge"><span class="case-badge-dot"></span>Case study — concept</span>
+        <h1>Fleet Director Concept</h1>
+        <p>Reimagining how fleet directors interact with fleet data — from a dashboard organized around data categories to one organized around the goals a director actually sets.</p>
+        <p class="super-sub">Systems thinking • Strategic vision • Cross-functional influence</p>
+    </section>
+    <div class="case-body">
+        <div class="case-content">
+            <section class="introduction">
+                <div class="intro-role">
+                    <span class="title-label">My Role</span>
+                    <p>Product Designer exploring future-state concepts alongside design leadership to help define the long-term vision for GM's commercial platform.</p>
+                </div>
+                <div class="intro-product">
+                    <span class="title-label">Product</span>
+                    <p>GM Fleet Platform</p>
+                </div>
+                <div class="intro-outcome">
+                    <span class="title-label">Status</span>
+                    <p class="outcome-text">Conceptual — informing long-term vision</p>
+                </div>
+                <div class="intro-image">
+                    <img src="assets/fleet-director/fd-final-dashboard.png" alt="Daily briefing dashboard showing standing goals, what matters most, and fleet overview">
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number" aria-hidden="true">01</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">01 — Situation</span>
+                    <h2>An intentionally open-ended brief.</h2>
+                    <p>Two years ago, my manager at the time and I were asked to explore what a "fleet intelligence" layer could look like for fleet directors — the people overseeing large, multi-region fleet operations.</p>
+                    <p>The brief was intentionally open-ended. There were no requirements, no backlog, and no expectation that anything would immediately ship — just an invitation to explore how data and insights could help these users make better financial and operational decisions.</p>
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number story-bg-number--right" aria-hidden="true">02</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">02 — Problem</span>
+                    <h2>Goals kept losing to more data.</h2>
+                    <p>The idea of leading with goals wasn't entirely new — even in the earliest notes, there's a flag questioning whether the concept was "too heavy on goals." But that idea kept losing to the pull toward showing more data, which is what most of the exploration defaulted back to. My manager's parallel direction leaned further into dashboards and graphs; my own exploration — trust-building visualizations, anomaly detection, scale modeling, third-party integrations — kept arriving at more of the same. Neither of us fully broke the pattern, and the project stalled when priorities shifted elsewhere.</p>
+                    <div class="callout-quote">
+                        <p>Looking back, I don't think it was a visualization problem. It was the wrong starting point. Fleet directors already have more data than they can realistically consume — their challenge isn't finding information, it's deciding what deserves attention.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number" aria-hidden="true">03</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">03 — Reframing</span>
+                    <h2>A weekend to rework a year and a half of assumptions.</h2>
+                    <p>A year and a half later, the director who'd originally sponsored that work asked to revisit it as the team's platform neared launch. The invite came on a Friday for a Monday meeting — I had the weekend.</p>
+                    <p>Going back through my old notes, one observation kept resurfacing: fleet directors don't wake up asking "How is maintenance performing?" or "Show me my safety dashboard." They ask questions like — are we going to hit our cost targets? Should we replace vehicles this year or next? Which decisions will have the biggest financial impact?</p>
+                    <p>That realization completely changed how I approached the concept: fleet directors don't struggle to find data — they struggle to know what to prioritize.</p>
+
+                    <div class="framed-image-row">
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-01.png" alt="Whiteboard notes: what goes into a purchase decision"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-02.png" alt="Whiteboard notes: setup and account creation"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-03.png" alt="Whiteboard notes: purchasing"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-04.png" alt="Whiteboard notes: what a fleet director would want to see"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-05.png" alt="Whiteboard notes: how to build trust when making a recommendation"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-06.png" alt="Whiteboard sketch of the recommendation flow"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-07.png" alt="Whiteboard notes: think like a fleet director"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-08.png" alt="Whiteboard notes: mixed fleet and emphasis on smaller vehicles"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-wb-09.png" alt="Whiteboard wireframe sketches"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number story-bg-number--right" aria-hidden="true">04</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">04 — Designing around goals</span>
+                    <h2>Organized around decisions, not categories.</h2>
+                    <p>Instead of organizing the experience around categories like maintenance, safety, energy, and utilization, I organized it around the goals a fleet director is actually trying to achieve.</p>
+                    <p>The homepage answers one question first: are we on track? Progress is stated in plain language — where the fleet is projected to land if nothing changes, relative to the director's stated goal. From there, the experience becomes exploratory: adjust a decision, like replacing the fleet's highest-cost vehicles, and watch the effect ripple through budget forecasts, operating costs, and long-term planning in real time.</p>
+
+                    <p class="story-callout">Daily briefing — leads with the gap to goal</p>
+                    <div class="framed-image">
+                        <img src="assets/fleet-director/fd-final-dashboard.png" alt="Daily briefing dashboard showing standing goals, what matters most, and fleet overview">
+                    </div>
+
+                    <p class="story-callout">Working backward from a business outcome, not a metric</p>
+                    <div class="framed-image">
+                        <img src="assets/fleet-director/fd-cp-work-backward.png" alt="Tell me where you want the business to land screen, with goal options and the moves that deliver it">
+                    </div>
+
+                    <div class="callout-box">
+                        <span class="callout-label">The data supports the decision instead of becoming the decision</span>
+                        <p>Nothing is hidden — a director can still drill into why specific vehicles are recommended for replacement. The old category breakdown — energy, safety, maintenance, and so on — didn't disappear. It moved from the headline to supporting detail further down the page, once the goal itself became the entry point.</p>
+                    </div>
+
+                    <p class="story-callout">Why these vehicles — the decision, shown as a flow</p>
+                    <div class="framed-image">
+                        <img src="assets/fleet-director/fd-final-why-vehicles.png" alt="Why these vehicles decision flow diagram with the 12 vehicles to act on now">
+                    </div>
+
+                    <p class="story-callout">Catching a goal before it slips</p>
+                    <div class="framed-image-row framed-image-row-2">
+                        <div class="framed-image"><img src="assets/fleet-director/fd-cp-goal-slipping-a.png" alt="Cost-per-mile goal starting to slip, with what changed since it was committed"></div>
+                        <div class="framed-image"><img src="assets/fleet-director/fd-cp-goal-slipping-b.png" alt="Cost-per-mile goal starting to slip, with a target slider and the moves behind it"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="story story-final">
+                <span class="story-bg-number" aria-hidden="true">05</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">05 — Outcome</span>
+                    <h2>A shift in the question, not yet a shipped product.</h2>
+                    <p>I brought the reworked concept to a meeting with the director, my former manager, and my current manager and senior manager. The shift in perspective resonated enough that the group asked to keep developing it as part of the platform's long-term vision work.</p>
+                    <p>The work remains conceptual rather than shipped, but it changed the conversation from "How can we present more information?" to "How can we help leaders make better decisions?" That distinction continues to shape how the team is thinking about what comes next.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section class="case-footer">
+        <span class="case-footer-copyright">&copy; Cody Turnock</span>
+        <a href="index.html" class="case-footer-back">Back to work &rarr;</a>
+    </section>
+    </div>
+    <script src="password-gate.js"></script>
+</body>
+</html>

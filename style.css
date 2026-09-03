@@ -1,0 +1,947 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Clarity-city";
+    src: url('fonts/ClarityCity-Regular.woff2') format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Clarity-city";
+    src: url('fonts/ClarityCity-Bold.woff2') format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   CASE STUDY PAGE PATTERNS
+   Established on custom-video-request.html — reuse these same classes on
+   the other case studies (fleet-director, vehicle-upload, etc.) so every
+   page shares one visual system. See "Page specific styling" further down
+   for the full rule definitions.
+
+   PAGE SKELETON
+   .case-body        — wraps all numbered sections, stacked.
+   .case-content      — holds .introduction and every .story section, stacked.
+   .introduction       — the My Role / Product / Outcome row at the top,
+                        3-column grid (role gets more space than the two
+                        short value columns), plus one full-width image.
+
+   NUMBERED STORY SECTIONS (.story)
+   Each numbered chapter (01 Situation, 02 Problem, 03 Approach...) is one
+   <section class="story"> containing:
+     .story-bg-number   — giant faint number watermark, left-aligned by
+                          default. Add the extra class "story-bg-number--right"
+                          to alternate a specific section to the right.
+     .story-content      — eyebrow + h2 + body copy + any callouts/images,
+                          all in document order (images can sit inline
+                          between paragraphs, not just at the end).
+     .story-eyebrow       — small green "01 — Situation" label.
+     h3                   — sub-heading for splitting one story section into
+                          parts (e.g. "Earning alignment." / "Designing the
+                          experience." inside 03 — Approach).
+     .story-callout        — single-line bold green statement (e.g.
+                          "Before — footage only existed if an event
+                          triggered it").
+
+   CALLOUT VARIANTS — pick based on what the content is doing:
+     .callout-quote  — left green accent border, dark tinted background.
+                       Use for an emphasis PARAGRAPH pulled out of the
+                       narrative (e.g. "the design was approved, then
+                       stalled when...").
+     .callout-box    — full border box, use for a LABELED aside: a bulleted
+                       list (safeguards) or a "Decision 01 — ..." writeup.
+                       Needs a .callout-label span as the heading.
+     .pull-quote      — larger italic standalone quote (blockquote + p),
+                       optional <cite> for attribution. Use sparingly, for
+                       the single most quotable line in a section (a
+                       stakeholder's words, a sharp one-liner) — it's a
+                       bigger visual break than callout-quote.
+
+   IMAGES
+     .intro-image / .story-image  — one full-width framed screenshot at the
+                       end of a section's content.
+     .framed-image     — same framed-screenshot treatment, but usable inline
+                       mid-content (e.g. between two callouts).
+     .framed-image-row — 3-across grid of .framed-image. Add modifier class
+                       "framed-image-row-2" for a 2-across (50/50) row.
+     .framed-image-caption — small bold green label, for captioning one
+                       image inside a framed-image-row (e.g. "Add manually"
+                       above the empty-state image in a before/after pair).
+     .board-frame       — for full-width flow-diagram / whiteboard exports
+                       (no inner padding card, just a clean frame).
+     .inspiration-grid  — 4-across grid with dashed borders, for mood-board /
+                       reference thumbnails (not real product screenshots).
+
+   OUTCOME SECTION (.outcome)
+   Reserve for the final numbered section only — full-bleed background,
+   gradient fading back to the page background near the bottom.
+     .stat-tiles / .stat-tile — 3-across bordered, dark-filled result tiles.
+     .pull-quote               — testimonial quote reused here with <cite>.
+
+   CONCEPT / IN-PROGRESS PAGES (fleet-director.html)
+     .case-badge          — small dot + "Case study — concept" label above h1.
+     .story-final          — put on the last numbered .story section instead
+                       of using .outcome, when the page shouldn't end on a
+                       full-bleed gradient (e.g. still-conceptual work) —
+                       just adds a plain top/bottom divider.
+
+   TOP NAV (all case study / work pages)
+     .navigation        — logo (linked to index.html) on the left, plus a
+                       single .nav-back "All Work" link on the right. Same
+                       markup and classes on every work page for consistency.
+   ========================================================================== */
+
+html {
+    overflow-x: hidden;
+}
+body {
+    background-color:#0D0D0D;
+    color:#ffffff;
+    max-width: 1400px;
+    margin-inline:auto;
+    padding:0 48px;
+}
+a {
+    text-decoration: none;
+    color:#fff;
+}
+a:hover {
+    color: #7ADAA5;
+}
+
+/*Password gate — site-wide, gates every page. Hidden by default so a
+  visitor without JS (or before password-gate.js runs) never sees the real
+  content; JS adds .unlocked to <body> once the password is confirmed.*/
+#site-content {
+    display: none;
+}
+body.unlocked #site-content {
+    display: block;
+}
+.gate-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0D0D0D;
+}
+body.unlocked .gate-overlay {
+    display: none;
+}
+.gate-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 320px;
+    padding: 0 24px;
+    text-align: center;
+}
+.gate-logo {
+    height: 28px;
+    margin-bottom: 0.5rem;
+}
+.gate-label {
+    color: #a3a3a3;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.gate-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: #1C1C1C;
+    color: #ffffff;
+    font-family: "clarity-city", sans-serif;
+    font-size: 1rem;
+}
+.gate-input:focus {
+    outline: none;
+    border-color: #7ADAA5;
+}
+.gate-submit {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #7ADAA5;
+    color: #0D0D0D;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+.gate-submit:hover {
+    background: #66C793;
+}
+.gate-error {
+    color: #FF8A8A;
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    font-family: "clarity-city", sans-serif;
+}
+
+/*navigation*/
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-family: "Clarity-city";
+    font-weight: 500;
+}
+.logo-side {
+    display: flex;
+    align-items: center;
+}
+.logo-side img {
+    padding-right:16px;
+}
+.navigation h3 {
+    font-weight: 500;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+.navi {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+.navi li {
+    display: inline-block;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.logo-side h3 {
+    display: inline;
+    padding-left:8px;
+}
+/*Hero section*/
+.hero {
+    padding: 5rem 0 4rem;
+}
+.hero h1 {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: clamp(44px, 6vw, 88px);
+    padding-bottom: 24px;
+}
+.hero p {
+    font-size:20px;
+    color: #a3a3a3;
+    line-height: 1.5;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 500;
+}
+
+/*Work section*/
+.work {
+    padding: 4rem 0;
+}
+
+.section-label {
+    display: block;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 60px 1fr 40px;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-number {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    color: #7ADAA5;
+}
+
+.project-content h2 {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 48px);
+    margin-bottom: 1rem;
+}
+
+.project-content p {
+    color: #a3a3a3;
+    font-size: clamp(16px, 1.4vw, 20px);
+    line-height: 1.5;
+    max-width: 55ch;
+    margin-bottom: 1.5rem;
+    font-family: "clarity-city", sans-serif;
+    font-weight:500;
+
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(122, 218, 165, 0.5);
+    border-radius: 999px;
+    color: #7ADAA5;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.arrow {
+    justify-self: end;
+    color: #8a8a8a;
+    font-size: 1.5rem;
+}
+
+/*About*/
+.about {
+    padding: 4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.img-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.img-cont > .img {
+    flex: 1 1 35%;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    
+}
+
+.img-cont > .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.about-text p {
+    color: #d9d9d9;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-family: "clarity-city", sans-serif;
+    font-weight:500;
+    
+}
+
+.about .section-label {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/*Footer*/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 4rem 0 3rem;
+}
+
+.footer-main h1 {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 56px);
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-main .email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #7ADAA5;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    text-align: right;
+}
+
+.footer-links a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+}
+.footer-links a:hover {
+    color: #7ADAA5;
+}
+
+.footer-links .copyright {
+    color: #8a8a8a;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/*Page specific styling*/
+.hero .super-sub {
+    font-weight: 700;
+    color: #7BCBA0;
+}
+.title-label {
+    display: block;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+}
+.introduction p {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+}
+.introduction {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    column-gap: 4rem;
+    padding: 3rem 0 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.intro-role,
+.intro-product,
+.intro-outcome {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.outcome-text {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/*Case-study body — holds .introduction and every .story section, stacked.*/
+.case-body {
+    display: block;
+}
+
+.intro-image,
+.story-image {
+    grid-column: 1 / -1;
+    margin-top: 3rem;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.intro-image img,
+.story-image img {
+    width: 100%;
+    display: block;
+}
+
+/*Story sections — repeatable pattern for 01 Situation, 02 Approach, etc.*/
+.story {
+    position: relative;
+    padding: 5rem 0 5rem;
+}
+
+/*Giant faint number sits behind the content as a watermark — absolutely
+  positioned so it doesn't take up grid space, and z-indexed under everything
+  else in the section.*/
+.story-bg-number {
+    position: absolute;
+    top: -2rem;
+    left: -1rem;
+    z-index: 0;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: clamp(160px, 20vw, 320px);
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.04);
+    user-select: none;
+}
+.story-bg-number--right {
+    left: auto;
+    right: -1rem;
+}
+
+.story-content {
+    position: relative;
+    z-index: 1;
+}
+
+.story-eyebrow {
+    display: block;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7ADAA5;
+    margin-bottom: 1.5rem;
+}
+
+.story-content h2 {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+}
+
+.story-content p {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 500;
+    color: #a3a3a3;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    max-width: 65ch;
+}
+
+.story-content p.story-callout {
+    margin-top: 2rem;
+    font-weight: 700;
+    color: #7ADAA5;
+}
+
+.story-content h3 {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 2.2vw, 30px);
+    margin: 3rem 0 1.5rem;
+}
+
+/*Pull-quote callout — left accent border, used for emphasis paragraphs*/
+.callout-quote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid #7ADAA5;
+    background-color: #12201A;
+}
+.callout-quote p {
+    color: #d9d9d9 !important;
+    max-width: none !important;
+    margin-bottom: 1rem;
+}
+.callout-quote p:last-child {
+    margin-bottom: 0;
+}
+
+/*Bordered callout box — used for safeguard lists and decision call-outs*/
+.callout-box {
+    margin: 2rem 0;
+    padding: 1.75rem 2rem;
+    border: 1px solid rgba(122, 218, 165, 0.35);
+    border-radius: 8px;
+    background-color: #0F1A15;
+}
+.callout-box p {
+    color: #d9d9d9 !important;
+    max-width: none !important;
+    margin-bottom: 1rem;
+}
+.callout-box p:last-child {
+    margin-bottom: 0;
+}
+.callout-label {
+    display: block;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #7ADAA5;
+    margin-bottom: 1rem;
+}
+.callout-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.callout-box li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: #d9d9d9;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+}
+.callout-box li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #7ADAA5;
+}
+
+/*Inline framed images used within story content*/
+.framed-image {
+    margin: 2rem 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.framed-image img {
+    width: 100%;
+    display: block;
+}
+.framed-image-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+.framed-image-row .framed-image {
+    margin: 0;
+}
+.framed-image-row-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+.framed-image-caption {
+    display: block;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    color: #7ADAA5;
+    margin-bottom: 0.75rem;
+}
+
+/*Flow diagram + inspiration section*/
+.flow-section {
+    padding: 5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.flow-section > p {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 500;
+    color: #a3a3a3;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin: 1.5rem 0 2.5rem;
+    max-width: 65ch;
+}
+.board-frame {
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 4rem;
+}
+.board-frame img {
+    width: 100%;
+    display: block;
+}
+.inspiration-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+.inspiration-grid img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+/*Outcome section — full-bleed dark green background, fading back to the
+  page background in roughly the last quarter of the section rather than evenly*/
+.outcome {
+    background: linear-gradient(to bottom, #0B1712 0%, #0B1712 75%, #0D0D0D 100%);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding: 5rem calc(50vw - 50%) 6rem;
+    overflow: hidden;
+}
+.outcome-inner {
+    position: relative;
+    max-width: 1304px;
+    margin-inline: auto;
+}
+.outcome-inner > .story-eyebrow {
+    position: relative;
+    z-index: 1;
+}
+.outcome-inner > h2 {
+    position: relative;
+    z-index: 1;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.15;
+    margin: 1.5rem 0 2rem;
+}
+.outcome-inner > p {
+    position: relative;
+    z-index: 1;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 500;
+    color: #a3a3a3;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 65ch;
+}
+.stat-tiles {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+.stat-tile {
+    padding: 1.75rem;
+    border: 1px solid rgba(122, 218, 165, 0.35);
+    border-radius: 8px;
+    background-color: #1C1C1C;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+}
+.pull-quote {
+    position: relative;
+    z-index: 1;
+    margin: 4rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid #7ADAA5;
+}
+.pull-quote p {
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+.pull-quote cite {
+    font-style: normal;
+    color: #8a8a8a;
+}
+.outcome-inner > .title-label {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.5rem;
+}
+
+/*Case-study footer*/
+.case-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 0;
+}
+.case-footer-copyright {
+    color: #8a8a8a;
+    font-size: 0.85rem;
+}
+.case-footer-back {
+    color: #7ADAA5;
+    font-weight: 700;
+    font-family: "clarity-city", sans-serif;
+}
+
+/*Back-to-work link in the top nav on case study pages.*/
+.nav-back {
+    color: #7ADAA5;
+    font-weight: 700;
+    font-family: "clarity-city", sans-serif;
+}
+.case-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "clarity-city", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #7ADAA5;
+    margin-bottom: 1.5rem;
+}
+.case-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7ADAA5;
+}
+
+/*Final numbered section on a concept page — plain top/bottom divider
+  instead of the full-bleed gradient .outcome treatment.*/
+.story-final {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   Two breakpoints. 900px (tablet) collapses the text-heavy multi-column
+   grids to one column and steps the image grids down from 3/4-across to
+   2-across. 600px (phone) takes everything the rest of the way to a single
+   column and tightens spacing/type.
+   ========================================================================== */
+@media (max-width: 900px) {
+    body {
+        padding: 0 32px;
+    }
+    .hero {
+        padding: 3.5rem 0 3rem;
+    }
+    .hero h1,
+    .footer-main h1 {
+        font-size: clamp(34px, 8vw, 88px);
+    }
+
+    .navigation img {
+        height: 28px;
+        width: auto;
+    }
+    .navi {
+        gap: 1.5rem;
+    }
+
+    .img-cont {
+        flex-direction: column;
+    }
+    .img-cont > .img {
+        flex: none;
+        width: 100%;
+    }
+    .about-text {
+        flex: none;
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+    }
+    .footer-links {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .introduction {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        column-gap: 0;
+    }
+
+    .framed-image-row,
+    .framed-image-row-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .inspiration-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stat-tiles {
+        grid-template-columns: 1fr;
+    }
+
+    .story {
+        padding: 3.5rem 0;
+    }
+    .story-bg-number {
+        font-size: 120px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0 20px;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .navi {
+        gap: 1rem;
+    }
+    .navi li {
+        font-size: 0.85rem;
+    }
+
+    .projects {
+        grid-template-columns: 32px 1fr 24px;
+        gap: 1rem;
+        padding: 2rem 0;
+    }
+
+    .framed-image-row,
+    .framed-image-row-2 {
+        grid-template-columns: 1fr;
+    }
+    .inspiration-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .callout-quote,
+    .callout-box {
+        padding: 1.25rem;
+    }
+
+    .outcome {
+        padding: 3.5rem calc(50vw - 50%) 4rem;
+    }
+
+    .case-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .story-bg-number {
+        font-size: 90px;
+        top: -1rem;
+    }
+}
