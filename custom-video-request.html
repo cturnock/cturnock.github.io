@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+    </script>
+    <title>Custom Video Request | Cody Turnock</title>
+    <meta name="description" content="Case study: redesigning how fleet managers request vehicle camera footage — from a spec that couldn't work to the most-used feature among dual-camera customers.">
+    <meta property="og:title" content="Custom Video Request | Cody Turnock">
+    <meta property="og:description" content="Case study: redesigning how fleet managers request vehicle camera footage — from a spec that couldn't work to the most-used feature among dual-camera customers.">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/cturnock-logo.svg" type="image/svg+xml">
+
+</head>
+<body>
+    <div class="gate-overlay">
+        <form id="gate-form" class="gate-form">
+            <img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo" class="gate-logo">
+            <label for="gate-password" class="gate-label">This site is password protected</label>
+            <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="off" autofocus>
+            <button type="submit" class="gate-submit">Enter</button>
+            <p id="gate-error" class="gate-error"></p>
+        </form>
+    </div>
+    <div id="site-content">
+    <section class="navigation">
+        <a href="index.html"><img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo"></a>
+        <a href="index.html" class="nav-back">&larr; All Work</a>
+    </section>
+    <section class="hero">
+      <h1>Custom video request</h1>
+      <p>Redesigning how fleet managers find and request vehicle camera footage — from a spec that couldn't work to the most-used feature among dual-camera customers.</p>
+    <p class="super-sub">Ambiguous requirements • Cross-functional alignment • Systems thinking • Business impact</p>
+    </section>
+    <div class="case-body">
+        <div class="case-content">
+            <section class="introduction">
+                <div class="intro-role">
+                    <span class="title-label">My Role</span>
+                    <p>Sole Product Designer partnering with Product, Engineering, Legal, Customer Success, and leadership. Led workflow definition, interaction design, stakeholder alignment, and implementation through launch.</p>
+                </div>
+                <div class="intro-product">
+                    <span class="title-label">Product</span>
+                    <p>OnStar Vehicle Insights</p>
+                </div>
+                <div class="intro-outcome">
+                    <span class="title-label">Outcome</span>
+                    <p class="outcome-text">Shipped in OnStar Vehicle Insights, carried into the consolidated platform</p>
+                </div>
+                <div class="intro-image">
+                    <img src="assets/cvr/fully-loaded.jpg" alt="OnStar Vehicle Insights Select Clip screen for Work Truck 1234 with the trip map and both road-facing and in-cabin camera previews loaded">
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number" aria-hidden="true">01</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">01 — Situation</span>
+                    <h2>Footage only existed if the system decided something happened.</h2>
+                    <p>OnStar Vehicle Insights gave fleet managers visibility into their vehicles, but access to video was limited to clips the system automatically captured when it detected an event — a hard brake, a collision, or another predefined trigger. If nothing triggered an event, there was no way to retrieve footage, even though fleet managers regularly needed to review moments the system couldn't anticipate.</p>
+                    <p class="story-callout">Before — footage only existed if an event triggered it</p>
+                </div>
+                <div class="story-image">
+                    <img src="assets/cvr/camera.png" alt="OnStar Vehicle Insights Trip History showing an automatically captured Hard Brake camera event with the road-view clip playing">
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number story-bg-number--right" aria-hidden="true">02</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">02 — Problem</span>
+                    <h2>The spec asked for the one thing a fleet manager couldn't give.</h2>
+                    <p>The original requirement asked for the opposite of what a fleet manager could realistically provide: an exact timestamp, with no other context, in exchange for a single 30-second video clip. In practice, that meant already knowing — to the second — when something had happened, at which point there was rarely much left to learn from the footage.</p>
+                    <p>I brought two versions to the first design review after kickoff: the one the requirements described, and an alternative built from patterns already in the product. Instead of requiring an exact timestamp, a manager could narrow by location using the trip snapshot markers already on the map.</p>
+                    <p>Product chose the original specification. The &ldquo;creepy factor&rdquo; label had come out of Legal's response to an earlier attempt at the problem and was still in the air, and Product was adding friction pre-emptively rather than spend the argument later. My alternatives stayed deliberately inside components and patterns OVI already had, which I thought made them easy to say yes to. Anything past the PRD was going to get the same answer. I disagreed and said so, but was directed to stay within the confines of the PRD to keep the project moving &mdash; so I built the requested version properly.</p>
+                    <div class="callout-quote">
+                        <p>The version written to the PRD was approved by the product manager and his manager, and moved forward on that basis. It wasn't until it was shown to the VP of Cloud &amp; AI / Digital Experiences that it stalled — he didn't buy the solution, for exactly the reason I'd flagged from the beginning: the friction to find footage was still too high for fleet managers to get what they needed. That pushback became the opportunity to solve the real problem instead of the original specification.</p>
+                    </div>
+                    <p class="story-callout">What I built to the original spec</p>
+                    <div class="framed-image-row framed-image-row-2">
+                        <div class="framed-image"><img src="assets/cvr/vehicle-dealer-grid-01.jpg" alt="Select Clip screen with trip map and timeline"></div>
+                        <div class="framed-image"><img src="assets/cvr/v1-clips.png" alt="Lytx Recordings modal with a date and time picker and a single requested clip preview, showing 100 clips remaining"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number" aria-hidden="true">03</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">03 — Approach</span>
+                    <h2>Rethinking the problem.</h2>
+                    <p>Because I had raised the concern early and brought alternative thinking with me, I was given room to design without technical or business constraints — not just to land on the ideal experience, but to solve the problem for our dual-camera customers: identify the ideal experience first, then work backward toward something feasible.</p>
+                    <p>My first concept assumed infrastructure the platform didn't yet have, including live video streaming. While it wasn't immediately buildable, it clarified something important: users didn't need live video — they needed multiple ways to narrow down a specific moment in time. That insight became the foundation for the rest of the experience.</p>
+
+                    <h3>Designing the experience.</h3>
+                    <p>I worked with Product and Engineering to evolve the ideal concept into something that could realistically ship, bringing the director, the VP, and the engineering leads along as it took shape. The final workflow allows a fleet manager to select a vehicle, narrow the search by date and time, cross-reference the trip on a map to identify the correct location, and preview a still image before requesting footage.</p>
+
+                    <div class="framed-image">
+                        <img src="assets/cvr/select-trip-modal.png" alt="Select Trip modal showing a vehicle's trips for the day on a map">
+                    </div>
+                    <div class="callout-box">
+                        <span class="callout-label">Decision 01 — Keeping clips with the vehicle</span>
+                        <p>The simplest implementation stored every requested clip in one centralized page, disconnected from the vehicle it belonged to. I pushed for a different approach: every vehicle received its own Clips page, using the existing vehicle list as the primary way to browse, search, and filter footage — matching how fleet managers already thought about their vehicles instead of forcing them into a separate organizational model.</p>
+                    </div>
+
+                    <div class="framed-image-row">
+                        <div class="framed-image"><img src="assets/cvr/select-clip-timeline.png" alt="Select Clip screen with the trip timeline scrubber"></div>
+                        <div class="framed-image"><img src="assets/cvr/map-noselect.jpg" alt="Select Clip screen before a clip is selected"></div>
+                        <div class="framed-image"><img src="assets/cvr/select-clip-hero.png" alt="Select Clip screen with road and in-cabin camera previews"></div>
+                    </div>
+                    <div class="callout-box">
+                        <span class="callout-label">Decision 02 — Designing around hardware limitations</span>
+                        <p>Requesting a clip wakes the vehicle's camera, which can take up to two minutes if it's asleep. Rather than leaving users waiting on a loading state, the experience relies on cached trip data so users can immediately browse trips and identify the moment they need. Trips without available video are flagged up front, and the camera wake-up happens in parallel while users select a date, trip, and location. In many cases, the camera is ready by the time they've made a selection — if not, users can still submit a request without a preview when they already know the exact moment they need.</p>
+                    </div>
+
+                    <h3>Earning legal approval.</h3>
+                    <blockquote class="pull-quote">
+                        <p>The design I brought to Legal did more of what they had objected to, not less.</p>
+                    </blockquote>
+                    <p>By the time it reached Legal, the design had approval from Product, Engineering, my director, and the VP. It also went further than the version that had drawn the &ldquo;creepy factor&rdquo; label: time, location, and still images from both the road-facing and in-cabin cameras, all available before a manager requested any video. The objection was never the map itself &mdash; it was that the product kept adding ways to watch the driver. Legal pushed back on the same grounds.</p>
+                    <p>Rather than debating opinions, I reframed the conversation by asking whether there was an actual legal or regulatory requirement preventing it. If there was, I'd design around it. If not, we could focus on mitigating the concerns instead of removing the capability altogether.</p>
+                    <p>I also shifted the discussion toward the business problem we were solving. This wasn't simply about tracking drivers — it was about protecting company-owned vehicles worth $50,000–100,000 that could cause significant damage if misused.</p>
+
+                    <div class="callout-box">
+                        <span class="callout-label">To make the feature easier to approve, I proposed additional safeguards</span>
+                        <ul>
+                            <li>Every video request would generate an email notification.</li>
+                            <li>Every request would be recorded in an audit log.</li>
+                            <li>Video requests would be limited to four minutes of footage.</li>
+                        </ul>
+                    </div>
+                    <div class="callout-quote">
+                        <p>Separating hard requirements from subjective concerns, combined with stronger business framing and meaningful safeguards, ultimately earned approval for the experience.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section class="flow-section">
+        <span class="story-eyebrow">Mapping every scenario</span>
+        <p>The full decision flow, worked out across vehicle states, camera availability, and request outcomes before a single screen got built.</p>
+        <div class="board-frame">
+            <img src="assets/cvr/cvr-flow.png" alt="Full decision flow diagram covering vehicle states, camera availability, and request outcomes">
+        </div>
+
+        <span class="title-label">Inspiration — Timeline &amp; scrubber interactions</span>
+        <div class="inspiration-grid">
+            <img src="assets/cvr/insp-01.jpg" alt="Reference: video player scrubber interaction">
+            <img src="assets/cvr/insp-02.jpg" alt="Reference: clip editor timeline interaction">
+            <img src="assets/cvr/insp-04.jpg" alt="Reference: multi-track timeline with waveform">
+            <img src="assets/cvr/insp-03.jpg" alt="Reference: clip selection timeline">
+        </div>
+    </section>
+
+    <section class="outcome">
+        <div class="outcome-inner">
+            <span class="story-bg-number" aria-hidden="true">04</span>
+            <span class="story-eyebrow">04 — Outcome</span>
+            <h2>A single 30-second clip request became a new way to search, request, and manage footage.</h2>
+            <p>The workflow shipped in OnStar Vehicle Insights and was later adapted into GM's new consolidated commercial platform, demonstrating that the interaction model held up well beyond the original product.</p>
+
+            <div class="stat-tiles">
+                <div class="stat-tile">Custom video became the #1 requested feature among dual-camera customers.</div>
+                <div class="stat-tile">Awareness of the feature reportedly helped support sales conversations around new camera hardware.</div>
+                <div class="stat-tile">Among those customers, the per-vehicle Clips page became the most-visited page, 30–40% ahead of the next closest.</div>
+            </div>
+
+            <blockquote class="pull-quote">
+                <p>&ldquo;This is an OVI feature worth the wait.&rdquo;</p>
+                <cite>— Customer Success Manager</cite>
+            </blockquote>
+
+            <span class="title-label">Adapted into the new consolidated platform</span>
+            <div class="board-frame">
+                <img src="assets/cvr/ofi-flow.png" alt="Flow diagram of the video request workflow adapted into the new consolidated fleet platform">
+            </div>
+            <div class="framed-image-row">
+                <div class="framed-image"><img src="assets/cvr/ofi-clips-table.jpg" alt="Video requests table in the new consolidated fleet platform"></div>
+                <div class="framed-image"><img src="assets/cvr/ofi-empty-state.jpg" alt="Request video clip modal before a vehicle and date are chosen"></div>
+                <div class="framed-image"><img src="assets/cvr/ofi-map-noselect.jpg" alt="Request video clip modal with a trip route drawn on the map"></div>
+            </div>
+            <div class="framed-image-row framed-image-row-2">
+                <div class="framed-image"><img src="assets/cvr/ofi-complete.jpg" alt="Request video clip modal with trip photos and clip details filled in"></div>
+                <div class="framed-image"><img src="assets/cvr/ofi-clip-details.jpg" alt="Clip details page with outside and inside camera views"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-footer">
+        <span class="case-footer-copyright">&copy; Cody Turnock</span>
+        <a href="index.html" class="case-footer-back">Back to work &rarr;</a>
+    </section>
+    </div>
+    <script src="password-gate.js"></script>
+</body>
+</html>

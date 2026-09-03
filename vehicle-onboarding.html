@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+    </script>
+    <title>Vehicle Onboarding | Cody Turnock</title>
+    <meta name="description" content="Case study: rebuilding how fleet managers onboard vehicles at scale — from a flow that failed executive review to a shipped experience fleet managers can trust.">
+    <meta property="og:title" content="Vehicle Onboarding | Cody Turnock">
+    <meta property="og:description" content="Case study: rebuilding how fleet managers onboard vehicles at scale — from a flow that failed executive review to a shipped experience fleet managers can trust.">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/cturnock-logo.svg" type="image/svg+xml">
+
+</head>
+<body>
+    <div class="gate-overlay">
+        <form id="gate-form" class="gate-form">
+            <img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo" class="gate-logo">
+            <label for="gate-password" class="gate-label">This site is password protected</label>
+            <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="off" autofocus>
+            <button type="submit" class="gate-submit">Enter</button>
+            <p id="gate-error" class="gate-error"></p>
+        </form>
+    </div>
+    <div id="site-content">
+    <section class="navigation">
+        <a href="index.html"><img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo"></a>
+        <a href="index.html" class="nav-back">&larr; All Work</a>
+    </section>
+    <section class="hero">
+      <h1>Vehicle Onboarding</h1>
+      <p>Rebuilding how fleet managers add vehicles to the platform — from a flow that failed executive review to a shipped experience fleet managers can trust.</p>
+    <p class="super-sub">Cross-functional alignment • User research • Systems thinking</p>
+    </section>
+    <div class="case-body">
+        <div class="case-content">
+            <section class="introduction">
+                <div class="intro-role">
+                    <span class="title-label">My Role</span>
+                    <p>Product Designer leading the redesign, partnering with Product and Engineering to redesign the vehicle onboarding experience, define the interaction model, and align teams around a scalable approach.</p>
+                </div>
+                <div class="intro-product">
+                    <span class="title-label">Product</span>
+                    <p>GM Fleet Platform</p>
+                </div>
+                <div class="intro-outcome">
+                    <span class="title-label">Impact</span>
+                    <p class="outcome-text">Rebuilt after failing executive review, now live</p>
+                </div>
+                <div class="intro-image">
+                    <img src="assets/vehicle-upload/av-vehicle-list.jpg" alt="Vehicles list in the GM Fleet Platform with the Manage vehicles menu open">
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number" aria-hidden="true">01</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">01 — Situation</span>
+                    <h2>I built the flow, left, and came back to fix what failed.</h2>
+                    <p>Fleet managers needed a scalable way to onboard vehicles into GM's commercial platform. I designed the initial upload experience around manual VIN entry and bulk uploads, but before verification was solved I returned to my primary team.</p>
+                    <p>Months later, I was asked back after a redesigned experience failed review with the Senior Vice President of Software and Services.</p>
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number story-bg-number--right" aria-hidden="true">02</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">02 — Problem</span>
+                    <h2>The structure looked organized. It broke the user's mental model.</h2>
+                    <p>The revised experience introduced a dedicated Add Vehicles page in the navigation with separate tabs for Connection Pending, Verification Pending, and Declined, while successfully processed vehicles appeared somewhere else entirely — the main vehicle list.</p>
+                    <p>No research existed on the flow, so I ran my own. I asked a teammate who had never seen the feature to upload 100 VINs, and watched. Within minutes the problem was obvious.</p>
+                    <p>After submitting the upload, he had no idea what happened next. There was no visible progress, no automatic updates, and vehicles silently moved between tabs. Instead of helping users manage onboarding, the experience forced them to hunt for their own vehicles and piece together what the system was doing.</p>
+                    <div class="callout-quote">
+                        <p>The issue wasn't visual design — it was trust.</p>
+                    </div>
+                    <p class="story-callout">Before the redesign — disconnected tabs</p>
+                    <div class="framed-image-row framed-image-row-2">
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-old-verification.jpg" alt="Old Add vehicles page, Verification pending tab"></div>
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-old-connection.jpg" alt="Old Add vehicles page, Connection pending tab"></div>
+                    </div>
+                    <div class="framed-image-row framed-image-row-2">
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-old-incomplete.jpg" alt="Old Add vehicles page, Incomplete tab"></div>
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-old-empty.jpg" alt="Old Add vehicles page, empty state with Add manually and Import file options"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="story">
+                <span class="story-bg-number" aria-hidden="true">03</span>
+                <div class="story-content">
+                    <span class="story-eyebrow">03 — Work</span>
+                    <h2>Rebuilding the flow.</h2>
+                    <p>After a three-hour working session with Product and Engineering, I proposed rethinking the structure rather than simply redesigning the interface. Instead of sending users to a separate onboarding page, the upload experience would begin directly from the vehicle list — the place fleet managers were already going to manage their fleet.</p>
+                    <p>From there, vehicles would appear where users naturally expected to find them, while onboarding progress happened in context instead of behind a disconnected workflow.</p>
+                    <p>I also challenged assumptions on the engineering side. I wanted to understand how quickly we could realistically determine a vehicle's status so declined vehicles wouldn't linger indefinitely in an unresolved state. That conversation directly influenced how quickly the interface could give users meaningful feedback instead of asking them to wait without answers.</p>
+
+                    <p class="story-callout">Starting from the vehicle list</p>
+                    <div class="framed-image">
+                        <img src="assets/vehicle-upload/av-vehicle-list.jpg" alt="Vehicles list in the GM Fleet Platform with the Manage vehicles menu open">
+                    </div>
+
+                    <div class="framed-image-row framed-image-row-2">
+                        <div>
+                            <span class="framed-image-caption">Add manually</span>
+                            <div class="framed-image"><img src="assets/vehicle-upload/av-manual-empty.jpg" alt="Add vehicles modal, manual VIN entry, empty"></div>
+                        </div>
+                        <div>
+                            <span class="framed-image-caption">Upload a file</span>
+                            <div class="framed-image"><img src="assets/vehicle-upload/av-list-upload.jpg" alt="Add vehicles modal, file upload, empty"></div>
+                        </div>
+                    </div>
+                    <div class="framed-image-row framed-image-row-2">
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-manual-vins.jpg" alt="Add vehicles modal, manual VIN entry with VINs pasted in"></div>
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-list-upload-file.jpg" alt="Add vehicles modal, file upload with a CSV file attached"></div>
+                    </div>
+
+                    <h3>Building trust into the experience.</h3>
+                    <p>Not everyone agreed with the direction immediately. The team responsible for the vehicle list viewed it as an active workspace where fleet managers spent their day, and they were concerned about vehicles updating in real time while users were working.</p>
+                    <p>I saw it differently. The vehicle list wasn't where users should have to manage onboarding — it was where they should be able to trust the current state of their fleet at a glance. I used examples from other enterprise products alongside findings from our own user interviews to support that perspective and worked with the team to find an approach everyone could support.</p>
+
+                    <div class="callout-box">
+                        <span class="callout-label">Decision — vehicles land in the list, not a holding page</span>
+                        <p>The simplest version put every vehicle behind one shared status page, disconnected from the list it belonged to. I pushed for vehicles to update directly in the existing vehicle list instead — no separate holding area, no second place to check.</p>
+                    </div>
+
+                    <h3>Designing the interaction pattern.</h3>
+                    <p>The first prototype validated the overall workflow, but another opportunity emerged. Existing notification banners weren't designed to communicate the progress of a long-running batch upload, so rather than stretching an existing component beyond its purpose, I designed a dedicated progress widget.</p>
+                    <p>The widget tracks uploads in real time — for example, "50 of 100 vehicles processed" — then resolves into a summary with a link to a detailed results page explaining why individual vehicles may have failed verification.</p>
+                    <p>As the project evolved, the experience expanded to include upload history and live updates across both the widget and vehicle list, requiring close collaboration with Engineering to support real-time status changes throughout the flow.</p>
+
+                    <div class="framed-image-row framed-image-row-2">
+                        <div>
+                            <span class="framed-image-caption">Completion toast</span>
+                            <div class="framed-image"><img src="assets/vehicle-upload/av-fleet-toast.jpg" alt="Vehicle list with a Fleet update toast showing 10 vehicles added and 3 VIN failed to upload"></div>
+                        </div>
+                        <div>
+                            <span class="framed-image-caption">Failed-VINs detail</span>
+                            <div class="framed-image"><img src="assets/vehicle-upload/av-upload-details.jpg" alt="Upload results modal listing VINs unable to upload"></div>
+                        </div>
+                    </div>
+
+                    <p class="story-callout">Full report &amp; upload history</p>
+                    <div class="framed-image-row framed-image-row-2">
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-upload-results.jpg" alt="Upload results page with total, added, and unable-to-add counts"></div>
+                        <div class="framed-image"><img src="assets/vehicle-upload/av-upload-history.jpg" alt="Fleet update history page listing past uploads"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section class="flow-section">
+        <span class="story-eyebrow">The full flow</span>
+        <p>Every path through manual entry, file upload, and history — worked out before the interface was rebuilt.</p>
+        <div class="board-frame">
+            <img src="assets/vehicle-upload/av-flow.png" alt="Full flow diagram covering manual entry, file upload, and upload history">
+        </div>
+    </section>
+
+    <section class="outcome">
+        <div class="outcome-inner">
+            <span class="story-bg-number" aria-hidden="true">04</span>
+            <span class="story-eyebrow">04 — Outcome</span>
+            <h2>It shipped, and the questions that stopped it didn't come back.</h2>
+            <p>The redesigned experience is live. The concerns that prompted the executive review were resolved, and stakeholder feedback following the redesign has been consistently positive.</p>
+        </div>
+    </section>
+
+    <section class="case-footer">
+        <span class="case-footer-copyright">&copy; Cody Turnock</span>
+        <a href="index.html" class="case-footer-back">Back to work &rarr;</a>
+    </section>
+    </div>
+    <script src="password-gate.js"></script>
+</body>
+</html>
