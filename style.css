@@ -71,6 +71,18 @@ html {
                        end of a section's content.
      .framed-image     — same framed-screenshot treatment, but usable inline
                        mid-content (e.g. between two callouts).
+     --tall modifier   — add "framed-image--tall" for a screenshot that's
+                       taller than it is wide (a full scrolling page, not
+                       a single view). Caps the frame's width instead of
+                       stretching it edge-to-edge, so it reads at roughly
+                       the same on-screen height as the landscape
+                       screenshots around it.
+     --crop modifier   — add "intro-image--crop" on the hero screenshot
+                       when that same image also appears full-size later
+                       in the page. Shows just the top slice at a fixed,
+                       banner-like height (object-fit: cover, cropped from
+                       the top) with a fade at the bottom, as a teaser —
+                       so the full screenshot isn't shown twice at full size.
      .framed-image-row — 3-across grid of .framed-image. Add modifier class
                        "framed-image-row-2" for a 2-across (50/50) row.
      .framed-image-caption — small bold green label, for captioning one
@@ -483,6 +495,25 @@ body.unlocked .gate-overlay {
     width: 100%;
     display: block;
 }
+.intro-image--crop {
+    position: relative;
+    height: 460px;
+}
+.intro-image--crop img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.intro-image--crop::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(13, 13, 13, 0) 0%, #0D0D0D 100%);
+    pointer-events: none;
+}
 
 /*Story sections — repeatable pattern for 01 Situation, 02 Approach, etc.*/
 .story {
@@ -634,9 +665,15 @@ body.unlocked .gate-overlay {
     width: 100%;
     display: block;
 }
+.framed-image--tall {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .framed-image-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: start;
     gap: 1.5rem;
     margin: 2rem 0;
 }
@@ -873,6 +910,9 @@ body.unlocked .gate-overlay {
         grid-template-columns: 1fr;
         row-gap: 2rem;
         column-gap: 0;
+    }
+    .intro-image--crop {
+        height: 340px;
     }
 
     .framed-image-row,
