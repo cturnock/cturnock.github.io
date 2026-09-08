@@ -1,109 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        if (window.location.hash) {
-            history.replaceState(null, '', window.location.pathname + window.location.search);
-        }
-    </script>
-    <title>Cody Turnock | Product Designer</title>
-    <meta name="description" content="Product designer portfolio — case studies in complex B2B systems design for commercial fleet management at General Motors.">
-    <meta property="og:title" content="Cody Turnock | Product Designer">
-    <meta property="og:description" content="Product designer portfolio — case studies in complex B2B systems design for commercial fleet management at General Motors.">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/cturnock-logo.svg" type="image/svg+xml">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+    if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+</script>
+<title>Cody Turnock | Product Designer</title>
+<meta name="description" content="Product designer portfolio — case studies in complex B2B systems design for commercial fleet management at General Motors.">
+<meta property="og:title" content="Cody Turnock | Product Designer">
+<meta property="og:description" content="Product designer portfolio — case studies in complex B2B systems design for commercial fleet management at General Motors.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<link rel="icon" href="assets/cturnock-logo.svg" type="image/svg+xml">
 </head>
 <body>
-    <div class="gate-overlay">
-        <form id="gate-form" class="gate-form">
-            <img src="assets/cturnock-logo-full.svg" alt="Cody Turnock logo" class="gate-logo">
-            <label for="gate-password" class="gate-label">This site is password protected</label>
-            <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="off" autofocus>
-            <button type="submit" class="gate-submit">Enter</button>
-            <p id="gate-error" class="gate-error"></p>
-        </form>
+
+<div class="gate-overlay">
+    <form id="gate-form" class="gate-form">
+        <svg class="gate-logo" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19.5 1.57512C29.3823 1.57512 37.4249 9.61454 37.4249 19.5C37.4249 29.3855 29.3855 37.4249 19.5 37.4249C9.61454 37.4249 1.57512 29.3823 1.57512 19.5C1.57512 9.61769 9.61454 1.57512 19.5 1.57512ZM19.5 0C8.72932 0 0 8.72932 0 19.5C0 30.2707 8.72932 39 19.5 39C30.2707 39 39 30.2707 39 19.5C39 8.72932 30.2675 0 19.5 0Z" fill="currentColor"/>
+            <path d="M6.27246 9.32812L6.8954 10.6581H17.9384L6.27246 22.2211L19.5807 35.8642L32.889 9.32812H6.27246V9.32812ZM18.8948 21.5971H18.0234V22.9271H18.8948V33.3241L8.22308 22.2621L18.8948 11.6981V21.5971ZM20.3075 22.968H21.2639V21.6381H20.3075V10.6581H30.8125L20.3075 31.4962V22.968Z" fill="currentColor"/>
+        </svg>
+        <label for="gate-password" class="gate-label">This site is password protected</label>
+        <input type="password" id="gate-password" class="gate-input" placeholder="Password" autocomplete="off" autofocus>
+        <button type="submit" class="gate-submit">Enter</button>
+        <p id="gate-error" class="gate-error"></p>
+    </form>
+</div>
+
+<div id="site-content">
+<div class="shell">
+
+  <div class="rail">
+    <div class="id">
+      <svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M19.5 1.57512C29.3823 1.57512 37.4249 9.61454 37.4249 19.5C37.4249 29.3855 29.3855 37.4249 19.5 37.4249C9.61454 37.4249 1.57512 29.3823 1.57512 19.5C1.57512 9.61769 9.61454 1.57512 19.5 1.57512ZM19.5 0C8.72932 0 0 8.72932 0 19.5C0 30.2707 8.72932 39 19.5 39C30.2707 39 39 30.2707 39 19.5C39 8.72932 30.2675 0 19.5 0Z" fill="currentColor"/>
+          <path d="M6.27246 9.32812L6.8954 10.6581H17.9384L6.27246 22.2211L19.5807 35.8642L32.889 9.32812H6.27246V9.32812ZM18.8948 21.5971H18.0234V22.9271H18.8948V33.3241L8.22308 22.2621L18.8948 11.6981V21.5971ZM20.3075 22.968H21.2639V21.6381H20.3075V10.6581H30.8125L20.3075 31.4962V22.968Z" fill="currentColor"/>
+      </svg>
+      <div class="n">Cody Turnock</div>
     </div>
-    <div id="site-content">
-    <section class="navigation">
-        <img src="assets/cturnock-logo-full.svg" alt="cody turnock logo">
-        <ul class="navi">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </section>
-    <section class="hero">
-        <h1>I design complex B2B systems that hold up in the real world.</h1>
-        <p>For over a decade, I've partnered with product, engineering, and leadership to turn ambiguous requirements into products that work for both the business and the people using them.</p>
-    </section>
-    <section class="work" id="work">
-        <span class="section-label">Selected Work</span>
-        <a class="projects" id="project1" href="custom-video-request.html">
-            <span class="project-number">01</span>
-            <div class="project-content">
-                <h2>Custom Video Request</h2>
-                <p>A video request spec fleet managers couldn't actually use, reworked into the most-requested feature among camera customers.</p>
-                <div class="tags">
-                    <span class="tag">Systems thinking</span>
-                    <span class="tag">Business impact</span>
-                </div>
-            </div>
-            <span class="arrow">&rarr;</span>
-        </a>
-        <a class="projects" id="project2" href="vehicle-onboarding.html">
-            <span class="project-number">02</span>
-            <div class="project-content">
-                <h2>Vehicle Onboarding</h2>
-                <p>Rebuilding how fleet managers onboard vehicles at scale — replacing a static holding page with real-time progress built into the flow.</p>
-                <div class="tags">
-                    <span class="tag">Systems thinking</span>
-                    <span class="tag">Platform pattern</span>
-                </div>
-            </div>
-            <span class="arrow">&rarr;</span>
-        </a>
-        <a class="projects" id="project3" href="fleet-director.html">
-            <span class="project-number">03</span>
-            <div class="project-content">
-                <h2>Fleet Director</h2>
-                <p>Designing a proactive intelligence layer for the people managing thousands of vehicles at once — concept, in progress.</p>
-                <div class="tags">
-                    <span class="tag">0&rarr;1</span>
-                    <span class="tag">Data storytelling</span>
-                </div>
-            </div>
-            <span class="arrow">&rarr;</span>
-        </a>
-    </section>
-    <section class="about" id="about">
-        <div class="img-cont">
-            <div class="img"><img src="assets/about-photo1.jpg" alt="Placeholder"></div>
-            <div class="about-text">
-                <span class="section-label">About</span>
-                <p>Hi I'm Cody! I'm a product designer who enjoys untangling messy problems.</p>
-                <p>Over the last decade I've worked across complex B2B products, most recently designing software for commercial fleet managers at General Motors. The problems I enjoy most rarely start with pixels – they start with unclear requirements, competing priorities, technical constraints, and getting cross-functional teams aligned around the right problem before designing the solution.</p>
-                <p>I'm at my best when a project feels ambiguous. I enjoy asking the questions that change the direction of a project, challenging assumptions that no longer hold up, and working with Product, Engineering, Legal, and leadership to find solutions that are practical, scalable, and grounded in how people actually work.</p>
-                <p>The work I'm most proud of isn't necessarily the flashiest. It's the work that still makes sense months after launch because it solved the right problem, not just the one that was originally written down.</p>
-                <p>Outside of work, I'm based in Grand Rapids, Michigan, where life is mostly centered around my two kids. When I'm not designing, you'll usually find me tinkering in my garage, playing games, rolling dice for a D&D campaign, or tackling another project around the house.</p>
-            </div>
-        </div>
-    </section>
-    <section class="footer" id="contact">
-        <div class="footer-main">
-            <h1>Let's talk about your next hard problem.</h1>
-            <a href="mailto:codyturnock@gmail.com" class="email-link">codyturnock@gmail.com &rarr;</a>
-        </div>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/codyturnock/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="assets/cody-turnock-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-            <span class="copyright">&copy; Cody Turnock</span>
-        </div>
-    </section>
+    <nav class="ticks">
+      <a href="#intro" data-tick="intro" aria-current="true">Intro</a>
+      <a href="#cvr" data-tick="cvr">Custom Video Request</a>
+      <a href="#addveh" data-tick="addveh">Vehicle Onboarding</a>
+      <a href="#intel" data-tick="intel">Fleet Director Concept</a>
+      <a href="#about" data-tick="about">About</a>
+    </nav>
+    <div class="foot">
+      <a href="mailto:codyturnock@gmail.com">codyturnock@gmail.com</a>
+      <a href="https://www.linkedin.com/in/codyturnock/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="assets/cody-turnock-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      <span class="loc">Grand Rapids, MI</span>
     </div>
-    <script src="password-gate.js"></script>
+  </div>
+
+  <main class="home-main">
+
+    <section id="intro">
+      <h1>I design complex B2B systems that hold up in the real world.</h1>
+      <p class="stand">Four years on GM's commercial fleet platform — vehicle onboarding, camera footage, and the reporting a fleet director answers to. Work that has to survive a customer with five thousand vehicles, a legal review, and three teams who each own a piece of the screen.</p>
+      <div class="tags"><span>Fleet &amp; telematics</span><span>Complex flows at scale</span><span>Rescue work</span><span>Concept &amp; vision</span></div>
+    </section>
+
+    <section id="cvr">
+      <div class="meta">OnStar Vehicle Insights — consolidated commercial platform</div>
+      <h2>Getting the footage the camera decided not to keep</h2>
+      <p class="lede">Cameras only saved clips when a sensor tripped. What fleet managers needed was almost always in the part that got discarded — one vehicle, one afternoon, usually because a customer had called. The requirement I was handed couldn't deliver that, I said so, built it anyway, and watched a VP stop it. That's how I got the room to solve it properly.</p>
+      <div class="facts">
+        <div><b>The most requested feature</b><span>Among customers running dual cameras</span></div>
+        <div><b>30–40% more traffic</b><span>To the per-vehicle clips page than the next closest, for those customers</span></div>
+        <div><b>Argued through legal</b><span>Kept the map by pairing it with notification, an access log, and a hard cap</span></div>
+      </div>
+      <a class="go" href="custom-video-request.html">Read the case study <i>&rarr;</i></a>
+    </section>
+
+    <section id="addveh">
+      <div class="meta">Commercial platform · onboarding</div>
+      <h2>A hundred VINs went in and nothing came back</h2>
+      <p class="lede">I built the first version of this flow, went on loan to another team, and returned to a rewrite a senior leader had already seen and disliked. Rather than argue from taste, I put a designer who'd never seen it in front of a hundred-VIN upload — no confirmation, silent distribution across three tabs, nothing refreshing. That session became the case.</p>
+      <div class="facts">
+        <div><b>Accepted in the room</b><span>After one three-hour session with product and engineering</span></div>
+        <div><b>Live processing status</b><span>Required convincing the team that owned the vehicle list to allow updates on their page</span></div>
+        <div><b>Reused since</b><span>The same shape now covers other add flows in the platform</span></div>
+      </div>
+      <a class="go" href="vehicle-onboarding.html">Read the case study <i>&rarr;</i></a>
+    </section>
+
+    <section id="intel">
+      <div class="meta">Concept · self-directed vision work</div>
+      <h2>Fleet directors don't struggle to find data. They struggle to know what to prioritize.</h2>
+      <p class="lede">The product was organized around the data we happened to store — fuel, safety, maintenance — and no director is measured on any of those individually. So I reorganized the concept around the goals they're accountable for, and kept the reasoning inspectable underneath every recommendation.</p>
+      <div class="facts">
+        <div><b>Projection, then moves</b><span>Where the year lands in plain language, then a ranked list that recalculates the gap as you confirm</span></div>
+        <div><b>Modeled at real scope</b><span>4 regions, 18 fleets, roughly 5,000 vehicles</span></div>
+        <div><b>Still a concept</b><span>Three screens built over a weekend, well received, nothing committed</span></div>
+      </div>
+      <a class="go" href="fleet-director.html">Read the case study <i>&rarr;</i></a>
+    </section>
+
+    <section id="about">
+      <div class="two">
+        <div>
+          <h2 style="font-size:clamp(26px,3.4vw,38px);margin-bottom:24px">About</h2>
+          <p>I've been in GM's commercial and fleet space for nearly four years — about two and a half years longer than anyone else on my team. In practice that makes me the institutional memory: people ask me where something lives and why it was decided that way, including designers a level above me.</p>
+          <p>Most of what I work on starts ambiguous or already broken. The design is usually the last third of the job. The first two thirds are getting several teams to the same version of the problem, then keeping the answer intact while product, engineering, legal, and leadership argue over it.</p>
+          <p>Before GM I was the only full-time designer at Asure Software, building a green-field product while maintaining the legacy ones. Before that, UX and UI at Brightly Interactive.</p>
+          <p>Outside of work I'm in Grand Rapids, Michigan, mostly organized around my two kids — tinkering in the garage, running a D&amp;D campaign, or working through whatever the house needs next.</p>
+          <div class="mail"><a href="mailto:codyturnock@gmail.com">codyturnock@gmail.com</a></div>
+        </div>
+        <div>
+          <ul>
+            <li><span>General Motors</span><span>2022 –</span></li>
+            <li><span>Asure Software</span><span>2020–2022</span></li>
+            <li><span>Brightly Interactive</span><span>2018–2020</span></li>
+            <li><span>US Signal</span><span>2015–2018</span></li>
+            <li><span>Kendall College of Art and Design, BFA</span></li>
+          </ul>
+          <p class="disclaim">Case studies contain internal GM material and are password protected — reach out for access.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<script src="password-gate.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.ticks a');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(l){
+          l.setAttribute('aria-current', l.dataset.tick === e.target.id ? 'true' : 'false');
+        });
+      });
+    }, {threshold:.5});
+    document.querySelectorAll('main section').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
 </body>
 </html>
