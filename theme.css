@@ -112,8 +112,8 @@ body.unlocked .gate-overlay{display:none}
   display:flex;flex-direction:column;padding:34px 0}
 .rail .back{font-family:"IBM Plex Mono";font-size:13px;color:var(--text-muted);text-decoration:none;letter-spacing:.03em}
 .rail .back:hover{color:var(--text)}
-.rail .id{display:flex;align-items:center;gap:10px}
-.rail .id svg{width:20px;height:20px;flex:none}
+.rail .id{display:flex;flex-direction:column;align-items:flex-start}
+.rail .id svg{width:40px;height:40px;flex:none;margin-bottom:14px}
 .rail .id .n{font:600 17px/1.2 "IBM Plex Sans",sans-serif;letter-spacing:-.01em}
 .rail .id .r,.rail .who .r{font-family:"IBM Plex Mono";font-size:12.5px;color:var(--text-muted);
   margin-top:6px;line-height:1.5;letter-spacing:.01em}
