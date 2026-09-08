@@ -102,14 +102,14 @@ body.unlocked .gate-overlay{display:none}
 .shell{max-width:1220px;margin:0 auto;padding:0 24px;
   display:grid;grid-template-columns:250px minmax(0,1fr);gap:64px;align-items:start}
 
-/* Identity (logo, or the back-link + project title on a case study) stays
-   pinned at the top of the viewport at all times. The nav ticks + contact
-   footer are grouped in .rail-mid, which auto-margins into the middle of
-   whatever space is left below — so it's always centered, regardless of
-   how tall the identity block or the tick list happens to be. */
+/* Three fixed zones in the sticky rail: identity pinned at the top, the
+   contact footer pinned at the bottom, and the nav ticks centered in
+   whatever space is left between them (margin:auto on .ticks alone —
+   with no other auto-margin sibling competing for it, that space is
+   split evenly above and below the ticks, which is what leaves .foot
+   sitting exactly at the bottom edge as a side effect). */
 .rail{position:sticky;top:0;height:100vh;height:100svh;
   display:flex;flex-direction:column;padding:34px 0}
-.rail-mid{margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:var(--s-5)}
 .rail .back{font-family:"IBM Plex Mono";font-size:13px;color:var(--text-muted);text-decoration:none;letter-spacing:.03em}
 .rail .back:hover{color:var(--text)}
 .rail .id{display:flex;align-items:center;gap:10px}
@@ -120,7 +120,7 @@ body.unlocked .gate-overlay{display:none}
 .rail .who{margin-top:var(--s-3)}
 .rail .who .n{font:600 17px/1.25 "IBM Plex Sans",sans-serif;letter-spacing:-.01em}
 
-.ticks{list-style:none;margin:0;padding:0}
+.ticks{list-style:none;margin-top:auto;margin-bottom:auto;padding:0}
 .ticks a{display:block;text-decoration:none;color:var(--text-muted);font-family:"IBM Plex Mono";
   font-size:12.5px;letter-spacing:.02em;padding:8px 0 8px 18px;border-left:1px solid var(--line);
   transition:color .2s,border-color .2s}
@@ -181,12 +181,13 @@ section h2{margin:0;font:600 clamp(27px,4.2vw,46px)/1.14 "IBM Plex Sans",sans-se
 #about ul{list-style:none;margin:0;padding:0;font-size:14px}
 #about li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;
   border-top:1px solid var(--line);font-family:"IBM Plex Mono"}
-#about li span:last-child{color:var(--text-muted);white-space:nowrap}
+#about li:first-child{border-top:0}
+#about li span + span{color:var(--text-muted);white-space:nowrap}
 #about .mail{margin-top:24px;font:600 16px/1.4 "IBM Plex Sans"}
 .disclaim{margin-top:24px;font-size:13px;color:var(--text-muted);max-width:50ch;line-height:1.55}
 
 @media (min-width:900px) and (prefers-reduced-motion:no-preference){
-  html{scroll-snap-type:y proximity}
+  html{scroll-snap-type:y mandatory}
   main.home-main section{scroll-snap-align:center}
 }
 
@@ -256,7 +257,6 @@ figure .frame .item{display:flex;flex-direction:column;gap:0}
 figure .frame .cap{display:block;font-family:"IBM Plex Mono";font-size:12px;color:var(--text-muted);
   letter-spacing:.02em;margin-bottom:var(--s-1)}
 figcaption{margin-top:var(--s-1);font-size:13px;color:var(--text-muted);max-width:56ch}
-figure.plate{max-width:var(--measure)}
 figure.row .frame,figure.grid .frame{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:16px}
 figure.board .frame{padding:22px;overflow:auto}
 figure.board a{display:block}
